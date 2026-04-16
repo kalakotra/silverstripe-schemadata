@@ -1,0 +1,10 @@
+---
+Name: schemadata
+---
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - Kalakotra\SchemaData\Extension\SchemaExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Kalakotra\SchemaData\Extension\SiteConfigExtension

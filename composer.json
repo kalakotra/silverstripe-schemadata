@@ -1,0 +1,27 @@
+{
+    "name": "kalakotra/silverstripe-schemadata",
+    "description": "Schema.org JSON-LD generator module for SilverStripe 6.x",
+    "type": "silverstripe-vendormodule",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amir Mehmedovic",
+            "homepage": "https://youwilllikeit.eu"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "silverstripe/framework": "^6.0",
+        "silverstripe/cms": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kalakotra\\SchemaData\\": "src/SchemaData/"
+        }
+    },
+    "extra": {
+        "expose": []
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
