@@ -82,6 +82,14 @@ final class ItemListSchema implements SchemaProvider
                 continue;
             }
 
+            if (!empty($item['type'])) {
+                $type = $item['type'];
+            } elseif (!empty($item['name']) && str_contains(strtolower($item['name']), 'seminar')) {
+                $type = 'Event';
+            } else {
+                $type = 'Thing';
+            }
+
             $element = [
                 '@type'    => 'ListItem',
                 'position' => $position + 1,
@@ -91,7 +99,7 @@ final class ItemListSchema implements SchemaProvider
             // If name/description/image exists, use a Thing wrapper
             if (!empty($item['name'])) {
                 $thing = [
-                    '@type' => 'Thing',
+                    '@type' => $type,
                     'url'   => $item['url'],
                     'name'  => $item['name'],
                 ];
