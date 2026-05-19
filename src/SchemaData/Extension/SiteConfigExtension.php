@@ -5,12 +5,14 @@ namespace Kalakotra\SchemaData\Extension;
 use SilverStripe\Core\Extension;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 
 class SiteConfigExtension  extends Extension
 {
     private static $db = [
         'OrganizationName' => 'Varchar',
+        'OrganisationDescription' => 'Text',
         'OrganisationURL' => 'Varchar',
         'OrganizationLogoURL' => 'Varchar',
         'OrganizationContactPointEmail' => 'Varchar',
@@ -26,6 +28,13 @@ class SiteConfigExtension  extends Extension
         return $organizationName !== ''
             ? $organizationName
             : (string) $this->owner->Title;
+    }
+
+    public function getOrganisationDescription()
+    {
+        return $this->owner->hasField('OrganisationDescription')
+            ? (string) $this->owner->getField('OrganisationDescription')
+            : '';
     }
 
     public function getOrganisationURL()
@@ -69,6 +78,7 @@ class SiteConfigExtension  extends Extension
     {
         $fields->addFieldsToTab('Root.SchemaData', [
             TextField::create('OrganizationName', 'Organization Name'),
+            TextareaField::create('OrganisationDescription', 'Organization Description'),
             TextField::create('OrganisationURL', 'Organization URL'),
             TextField::create('OrganizationLogoURL', 'Organization Logo URL'),
             TextField::create('OrganizationContactPointEmail', 'Organization Contact Point Email'),

@@ -31,4 +31,6 @@ interface SchemaProvider
      * @return array<string, mixed>
      */
     public function getSchemaData(): array;
+
+    
 }
